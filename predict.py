@@ -64,7 +64,7 @@ def get_weatherapi_forecast(lat, lon):
     except (requests.exceptions.RequestException, KeyError) as e:
         print("Could not fetch from WeatherAPI.com")
         return None
-#not my code from here on
+# parts of the following code is not completely mine
 def aggregate_forecasts(all_forecasts):
     valid_forecasts = [f for f in all_forecasts if f is not None]
     if not valid_forecasts:
