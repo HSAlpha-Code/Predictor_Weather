@@ -2,4 +2,4 @@ You need to configure your config.py for this code to work. Go to weatherapi.com
 
 Some parts of this code isn't mine which is mentioned in comments in file predict.py. I will be making changes to make it 3 APIs for more consistency soon(tm) to make it 100% mine as I learn more concepts.
 
-**Note:** You must have python downloaded on your system and I recommened lauching this file through your terminal.
+**Note:** You must have python downloaded & installed on your system and I highly recommend lauching this file through your terminal.
