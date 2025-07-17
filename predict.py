@@ -64,7 +64,7 @@ def get_weatherapi_forecast(lat, lon):
     except (requests.exceptions.RequestException, KeyError) as e:
         print("Could not fetch from WeatherAPI.com")
         return None
-# parts of the following code is not completely mine
+#not my code from here on
 def aggregate_forecasts(all_forecasts):
     valid_forecasts = [f for f in all_forecasts if f is not None]
     if not valid_forecasts:
@@ -125,7 +125,7 @@ def display_forecast(forecast, city):
         print(f"  Precipitation: {day['precip_mm']} mm")
     
     print("\n" + "="*40)
-    print("Forecast based on consensus from Open-Meteo and WeatherAPI.com")
+    print("Forecast based on consensus from WeatherAPI.com")
 
 #Script
 if __name__ == "__main__":
@@ -135,12 +135,11 @@ if __name__ == "__main__":
     else:
         lat, lon = get_coordinates(city)
         if lat is None or lon is None:
-            print(f"Could not find coordinates for '{city}'. Please check the .")
+            print(f"Could not find coordinates for '{city}' Please check your internet connection")
         else:
             #Fetching!
-            open_meteo_data = get_open_meteo_forecast(lat, lon)
             weatherapi_data = get_weatherapi_forecast(lat, lon)
             
-            all_data = [open_meteo_data, weatherapi_data]
+            all_data = [weatherapi_data]
             final_forecast = aggregate_forecasts(all_data)
             display_forecast(final_forecast, city)
